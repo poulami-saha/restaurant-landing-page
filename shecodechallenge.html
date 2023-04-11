@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poulami's Restaurant</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+  </head>
+  <style>
+    /* Global Styles */
+    h1 {
+      font-size: 50px;
+      line-height: 64px;
+      color: #222;
+    }
+
+    h2 {
+      font-size: 46px;
+      line-height: 54px;
+      color: #222;
+    }
+
+    h4 {
+      font-size: 20px;
+      color: #222;
+    }
+
+    h6 {
+      font-weight: 700;
+      font-size: 12px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #465b52;
+      margin: 15px 0 20px 0;
+    }
+
+    .section-p1 {
+      padding: 40px 80px;
+    }
+
+    .section-m1 {
+      margin: 40px 0;
+    }
+
+    button.normal {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 15px 30px;
+      color: black;
+      background-color: white;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      transition: 0.2s;
+    }
+    button.white {
+      font-size: 13px;
+      font-weight: 600;
+      padding: 11px 18px;
+      color: white;
+      background-color: transparent;
+      cursor: pointer;
+      border: 1px solid white;
+      outline: none;
+      transition: 0.2s;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Spartan", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      width: 100%;
+    }
+
+    #header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 80px;
+      background-color: #ebd4a4;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      z-index: 999;
+      position: sticky;
+      top: 0;
+      left: 0;
+    }
+    #header .logo {
+      height: 100px;
+      width: 100px;
+    }
+    #navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #navbar li {
+      list-style: none;
+      padding: 0 20px;
+      position: relative;
+    }
+    #navbar li a {
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+      transition: 0.3s ease;
+    }
+
+    #navbar li a:hover,
+    #navbar li a.active {
+      color: #088178;
+    }
+
+    #navbar li a.active::after,
+    #navbar li a:hover::after {
+      content: "";
+      width: 30%;
+      height: 2px;
+      background: #088178;
+      position: absolute;
+      bottom: -4px;
+      left: 20px;
+    }
+
+    #mobile {
+      display: none;
+      align-items: center;
+    }
+
+    #close {
+      display: none;
+    }
+    #aboutus {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 40vh;
+      padding: 50px;
+    }
+
+    #aboutus img {
+      padding-inline-start: 30px;
+    }
+
+    .carousal-inner-height {
+      height: 80vh;
+    }
+
+    .carousal-img {
+      height: 600px;
+    }
+    .carousel-item h3 {
+      color: #cab122;
+    }
+    .popular-cuisine {
+      margin-block-start: 30px;
+      text-align: center;
+    }
+
+    .items {
+      width: 90%;
+      margin: 0px auto;
+    }
+    .slick-slide {
+      margin: 10px;
+    }
+    .slick-slide img {
+      width: 100%;
+      border: 0px solid #fff;
+    }
+    .slick-prev:before,
+    .slick-next:before {
+      color: black;
+    }
+    #cuisine .fe-box {
+      width: 180px;
+      text-align: center;
+      padding: 25px 15px;
+      box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
+      border: 1px solid #cce7d0;
+      border-radius: 4px;
+      margin: 15px 10px;
+    }
+    #cuisine .fe-box:hover {
+      box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
+    }
+
+    #cuisine .fe-box h6 {
+      display: inline-block;
+      padding: 9px 8px 6px 8px;
+      line-height: 1;
+      border-radius: 4px;
+      color: #088178;
+      background-color: #fddde4;
+    }
+    #cuisine .fe-box:nth-child(2) h6 {
+      background-color: #cdebbc;
+    }
+    #cuisine .fe-box:nth-child(3) h6 {
+      background-color: #d1e8f2;
+    }
+    #cuisine .fe-box:nth-child(4) h6 {
+      background-color: #cdd4f8;
+    }
+    #cuisine .fe-box:nth-child(5) h6 {
+      background-color: #f6dbf6;
+    }
+    #cuisine .fe-box:nth-child(6) h6 {
+      background-color: #fff2e5;
+    }
+
+    #cuisine .fe-box img {
+      width: 100%;
+      height: 200px;
+      margin-bottom: 10px;
+    }
+    .menu {
+      background-color: #ede6bc;
+    }
+    .menu-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .menu-title {
+      background-color: #cab122;
+    }
+    .menu-details {
+      text-align: left;
+    }
+    #bestseller,
+    #menu-section {
+      text-align: center;
+    }
+    .pro-container {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      flex-wrap: wrap;
+    }
+    .pro {
+      width: 23%;
+      min-width: 250px;
+      padding: 10px 12px;
+      border: 1px solid #cce7d0;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+      transition: 0.2s ease;
+      margin: 15px 0;
+      position: relative;
+    }
+    .pro:hover {
+      box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+    }
+    .pro img {
+      width: 100%;
+      border-radius: 20px;
+    }
+
+    .pro .des {
+      text-align: start;
+      padding: 10px 0;
+    }
+    .pro .des span {
+      color: #606063;
+      font-size: 12px;
+    }
+    .pro .des h5 {
+      padding-top: 7px;
+      color: #1a1a1a;
+      font-size: 14px;
+    }
+    .pro .des i {
+      color: rgb(241, 128, 85);
+      font-size: 12px;
+    }
+    .pro .des h4 {
+      padding-top: 7px;
+      color: #088178;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .pro .cart {
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50px;
+      color: #088178;
+      background-color: #e8f6ea;
+      border: 1px solid #cce780;
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+    }
+    #booktable,
+    #premise {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 60vh;
+      background-size: cover;
+      background-position: center;
+    }
+    #booktable {
+      background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/336/original/table-book.jpeg?1681198766");
+    }
+    #premise {
+      background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/333/original/premise.jpeg?1681198724");
+    }
+    .info-section {
+      height: 70vh;
+      background-color: #ede6bc;
+      text-align: center;
+    }
+
+    #booktable,
+    #premise #review h4 {
+      color: white;
+      font-size: 16px;
+    }
+    #booktable,
+    #premise h2 {
+      color: white;
+      font-size: 30px;
+      padding: 10px 0;
+    }
+
+    #booktable h2 span {
+      color: #ef3636;
+    }
+
+    #booktable button:hover {
+      background-color: #088178;
+      color: white;
+    }
+
+    #newsletter {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #041e42;
+    }
+
+    #newsletter h4 {
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+    }
+    #newsletter p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #818ea0;
+    }
+
+    #newsletter p span {
+      color: #ffbd27;
+    }
+
+    #newsletter input {
+      height: 3.125rem;
+      padding: 0 1.25em;
+      font-size: 14px;
+      width: 100%;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      outline: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    #newsletter button {
+      background-color: #088178;
+      color: white;
+      white-space: nowrap;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    #newsletter .form {
+      display: flex;
+      width: 40%;
+    }
+
+    footer {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    footer .col {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    footer .logo {
+      margin-bottom: 20px;
+      height: 100px;
+      width: 100px;
+    }
+
+    footer h4 {
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+    footer p {
+      font-size: 13px;
+      margin: 0 0 8px 0;
+    }
+    footer a {
+      font-size: 13px;
+      text-decoration: none;
+      color: #222;
+      margin-bottom: 10px;
+    }
+
+    footer .follow {
+      margin-top: 20px;
+    }
+    footer .follow i {
+      color: #465b52;
+      padding-right: 4px;
+      cursor: pointer;
+    }
+
+    footer .install .row img {
+      border: 1px solid #088178;
+      border-radius: 6px;
+    }
+    footer .install img {
+      margin: 10px 0 15px 0;
+    }
+
+    footer .follow i:hover,
+    footer a:hover {
+      color: #088178;
+    }
+    footer .copyright {
+      width: 100%;
+      text-align: center;
+    }
+    @media (max-width: 799px) {
+      .section-p1 {
+        padding: 40px 40px;
+      }
+      #header {
+        padding: 20px 30px;
+      }
+      #aboutus {
+        margin-block: 20px;
+        height: 60vh;
+      }
+      #navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        height: 100vh;
+        width: 300px;
+        background-color: #ebd4a4;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 80px 0 0 10px;
+      }
+
+      #navbar.active {
+        right: 0px;
+      }
+      #navbar li {
+        margin-bottom: 25px;
+      }
+
+      #mobile {
+        display: flex;
+        align-items: center;
+      }
+      #mobile i {
+        color: #1a1a1a;
+        font-size: 24px;
+        padding-left: 20px;
+      }
+
+      #close {
+        display: initial;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+        color: #222;
+        font-size: 32px;
+      }
+      #lg-bag {
+        display: none;
+      }
+
+      #feature {
+        justify-content: center;
+      }
+
+      #feature .fe-box {
+        margin: 15px 15px;
+      }
+
+      .pro-container {
+        justify-content: center;
+      }
+      .pro {
+        margin: 15px;
+      }
+
+      #booktable,
+      #premise {
+        padding: 20px;
+      }
+
+      #catering {
+        height: 100vh;
+        background-color: #ede6bc;
+      }
+      #newsletter .form {
+        width: 70%;
+      }
+    }
+    @media (max-width: 477px) {
+      .section-p1 {
+        padding: 20px;
+      }
+      #header {
+        padding: 10px 30px;
+      }
+      #aboutus {
+        margin-block: 20px;
+        height: 40vh;
+      }
+
+      #aboutus img {
+        display: none;
+      }
+
+      #offers {
+        display: 40vh;
+        margin-block: 20px;
+      }
+
+      .popular-cuisine {
+        margin-block-start: 0px;
+      }
+
+      .pro-container {
+        background-color: #ede6bc;
+        justify-content: center;
+      }
+      h2 {
+        font-size: 32px;
+      }
+      h1 {
+        font-size: 38px;
+      }
+      #hero {
+        background-position: 55%;
+        padding: 0 20px;
+      }
+      #feature {
+        justify-content: space-between;
+      }
+      #feature .fe-box {
+        width: 155px;
+        margin: 0, 0, 15px, 0;
+      }
+
+      #product1 .pro {
+        width: 100%;
+      }
+
+      #newsletter {
+        padding: 40px 20px;
+      }
+
+      #newsletter .form {
+        width: 100%;
+      }
+      footer .copyright {
+        text-align: start;
+      }
+
+      #booktable,
+      #premise {
+        padding: 20px;
+      }
+    }
+  </style>
+  <body>
+    <section id="header">
+      <a href="#">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/325/original/logo.png?1681198654" class="logo" alt="" />
+        <div>
+          <ul id="navbar">
+            <li><a class="active" href="#menu-section">Menu</a></li>
+            <li><a href="#booktable">Book a Table</a></li>
+            <li><a href="#offers">Offers</a></li>
+            <li><a href="#catering">Catering</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            <li><a href="#bestseller">Chef's Choice</a></li>
+            <li id="lg-bag"><i class="fa-solid fa-basket-shopping"></i></li>
+            <a href="#" id="close"> <i class="fa fa-window-close"></i></a>
+          </ul>
+        </div>
+        <div id="mobile">
+          <a href="#"><i class="fa-solid fa-basket-shopping"></i></a>
+          <i id="bar" class="fas fa-outdent"></i>
+        </div>
+      </a>
+    </section>
+
+    <section id="aboutus">
+      <div>
+        <h2>About Us</h2>
+        <p>
+          The entire culinary world of India awaits hungry visitors at the
+          Indian Cuisine at Kolkata, India.
+        </p>
+        <p>
+          The team has set itself a clear mission: We don't just want to be a
+          very good Indian restaurant, we want to offer you an oasis of
+          well-being where you'll be happy to linger. Our foods are tasteful,
+          comfortable and designed with warm colors and we always pay attention
+          to cordiality and friendly service. We also offer you extras such as a
+          cocktail happy hour and the opportunity to spend an evening in our
+          oriental lounge with a bowling alley.
+        </p>
+      </div>
+      <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/316/original/aboutus.jpeg?1681198571" alt="" />
+    </section>
+
+    <div id="offers" class="carousel slide deals" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#offers" data-slide-to="0" class="active"></li>
+        <li data-target="#offers" data-slide-to="1"></li>
+        <li data-target="#offers" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner carousal-inner-height">
+        <div class="carousel-item active">
+          <img
+            class="w-100 carousal-img"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/317/original/anniversary.jpeg?1681198583"
+            alt="First slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Thank you for being our patron for 13 years.</h3>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img
+            class="w-100 carousal-img"
+            src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/326/original/menu.jpeg?1681198663"
+            alt="Second slide"
+          />
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#offers"
+        role="button"
+        data-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#offers"
+        role="button"
+        data-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    <h2 class="popular-cuisine">Popular Cuisines</h2>
+    <section id="cuisine" class="section-p1 items">
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/321/original/biryani.jpeg?1681198611" alt="" />
+        <h6>Biriyani</h6>
+      </div>
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/323/original/dhokla.jpeg?1681198636" alt="" />
+        <h6>West Indian</h6>
+      </div>
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/329/original/north.jpeg?1681198692" alt="" />
+        <h6>North Indian</h6>
+      </div>
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/324/original/dosa.jpeg?1681198648" alt="" />
+        <h6>South Indian</h6>
+      </div>
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/320/original/bengali.jpeg?1681198605" alt="" />
+        <h6>East Indian</h6>
+      </div>
+      <div class="fe-box">
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/335/original/snacks1.jpeg?1681198753" alt="" />
+        <h6>Snacks</h6>
+      </div>
+    </section>
+
+    <section id="menu-section" class="section-p1 menu">
+      <h2>Menu</h2>
+      <p>Check out our kitchen specialities</p>
+      <div class="pro-container">
+        <button class="pro" data-toggle="modal" data-target="#starterMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/327/original/momo.jpeg?1681198677" alt="" />
+          <div class="des">
+            <h5>Starters</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="starterMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Starters Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <h4><u>Vegetarian</u></h4>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Bhaja of the Day</h5>
+                    <p>Crispy fried vegetable</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Samosa</h5>
+                    <p>Crispy triangle fritter</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Hara Bhara Kabab</h5>
+                    <p>Spinach and green peas patties</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Barbecued stuffed potato</h5>
+                    <p>stuffed potato</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Paneer tikka</h5>
+                    <p>Barbequed cottage cheese</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <h5><u>Non-Vegetarian</u></h5>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Fish/Mutton Chop</h5>
+                    <p>Crumb fried fish/mutton</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Prawn Cutlet</h5>
+                    <p>Crispy prawn fritter</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Chicken Tandoori</h5>
+                    <p>Grilled chicken</p>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#thaliMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/320/original/bengali.jpeg?1681198605" alt="" />
+          <div class="des">
+            <h5>Special Thali</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="thaliMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Thali Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <h4><u>Vegetarian</u></h4>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Rajasthani Thali</h5>
+                  </div>
+                  <p>950 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Gujarati Thali</h5>
+                  </div>
+                  <p>950 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Bengali Thali</h5>
+                  </div>
+                  <p>950 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Orissa Thali</h5>
+                  </div>
+                  <p>950 INR</p>
+                </div>
+                <h5><u>Non-Vegetarian</u></h5>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Keralian Thali</h5>
+                  </div>
+                  <p>1250 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Bengali Thali</h5>
+                  </div>
+                  <p>1250 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Marathi Thali</h5>
+                  </div>
+                  <p>1250 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#vegMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/337/original/tandoori.jpeg?1681198784" alt="" />
+          <div class="des">
+            <h5>Main Course - Vegetarian</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="vegMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Main Course - Vegetarian Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <h4><u>Vegetarian</u></h4>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Dal Makhani</h5>
+                    <p>Crispy fried vegetable</p>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Palak Paneer</h5>
+                    <p>Crispy triangle fritter</p>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Gobi Masala</h5>
+                    <p>Spinach and green peas patties</p>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Navratan Korma</h5>
+                    <p>stuffed potato</p>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Dal Tadka</h5>
+                  </div>
+                  <p>250 INR</p>
+                </div>
+                <h5><u>Non-Vegetarian</u></h5>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Fish/Mutton Curry</h5>
+                    <p>Crumb fried fish/mutton</p>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Prawn Curry</h5>
+                    <p>Crispy prawn fritter</p>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Chicken Masala</h5>
+                    <p>Grilled chicken</p>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#nonVegMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/319/original/awadhi.jpeg?1681198597" alt="" />
+          <div class="des">
+            <h5>Main Course - Non-Vegetarian</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="nonVegMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Main Course - Non-Vegetarian Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <h4><u>Vegetarian</u></h4>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Bhaja of the Day</h5>
+                    <p>Crispy fried vegetable</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Samosa</h5>
+                    <p>Crispy triangle fritter</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Hara Bhara Kabab</h5>
+                    <p>Spinach and green peas patties</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Barbecued stuffed potato</h5>
+                    <p>stuffed potato</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Paneer tikka</h5>
+                    <p>Barbequed cottage cheese</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <h5><u>Non-Vegetarian</u></h5>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Fish/Mutton Chop</h5>
+                    <p>Crumb fried fish/mutton</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Prawn Cutlet</h5>
+                    <p>Crispy prawn fritter</p>
+                  </div>
+                  <p>50</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Chicken Tandoori</h5>
+                    <p>Grilled chicken</p>
+                  </div>
+                  <p>50</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#riceMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/334/original/pulao.jpeg?1681198742" alt="" />
+          <div class="des">
+            <h5>Rice/Roti/Pulao/Biriyani</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="riceMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Rice/Roti/Pulao/Biriyani Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Rice</h5>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Roti</h5>
+                  </div>
+                  <p>50 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Kashmiri Pulao</h5>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Biriyani</h5>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#dalMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/328/original/mutton1.jpeg?1681198685" alt="" />
+          <div class="des">
+            <h5>Dal</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="dalMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">Dal Menu</h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Masoor Dal</h5>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Dal Makhani</h5>
+                  </div>
+                  <p>50 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Dal Fry</h5>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Dal Tadka</h5>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#dessertMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/323/original/dhokla.jpeg?1681198636" alt="" />
+          <div class="des">
+            <h5>Dessert</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="dessertMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Dessert Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Rasagolla</h5>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Sandesh</h5>
+                  </div>
+                  <p>50 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Jalebi</h5>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Barfi</h5>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="pro" data-toggle="modal" data-target="#accomMenu">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/330/original/paratha1.jpeg?1681198700" alt="" />
+          <div class="des">
+            <h5>Accompaniments</h5>
+          </div>
+        </button>
+        <div
+          class="modal fade"
+          id="accomMenu"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="exampleModalLongTitle"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header menu-title">
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                  Accompaniments Menu
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body menu">
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Lassi</h5>
+                  </div>
+                  <p>150 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Milk</h5>
+                  </div>
+                  <p>50 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Chutney</h5>
+                  </div>
+                  <p>350 INR</p>
+                </div>
+                <div class="menu-content">
+                  <div class="menu-details">
+                    <h5>Paan</h5>
+                  </div>
+                  <p>550 INR</p>
+                </div>
+              </div>
+              <div class="modal-footer menu-title">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bestseller" class="section-p1">
+      <h2>Chef's Choice</h2>
+      <p>Check out our kitchen recommendation</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/319/original/awadhi.jpeg?1681198597" alt="" />
+          <div class="des">
+            <span>Biriyani</span>
+            <h5>Awadhi Biriyani</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>599 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/330/original/paratha1.jpeg?1681198700" alt="" />
+          <div class="des">
+            <span>Paratha</span>
+            <h5>Mixed Veg Paratha</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>200 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/337/original/tandoori.jpeg?1681198784" alt="" />
+          <div class="des">
+            <span>Chicken</span>
+            <h5>Chicken Tandoori</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>350 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/327/original/momo.jpeg?1681198677" alt="" />
+          <div class="des">
+            <span>Momos</span>
+            <h5>Pan Fried Momo</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>500 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/323/original/dhokla.jpeg?1681198636" alt="" />
+          <div class="des">
+            <span>Snacks</span>
+            <h5>Khamman Dhokla</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>250 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/328/original/mutton1.jpeg?1681198685" alt="" />
+          <div class="des">
+            <span>Mutton</span>
+            <h5>Mutton Roganjosh</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>600 INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/334/original/pulao.jpeg?1681198742" alt="" />
+          <div class="des">
+            <span>Pulao</span>
+            <h5>Kashmiri Pulao</h5>
+            <div class="star">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </div>
+            <h4>500INR</h4>
+          </div>
+          <a href="#"><i class="fa fa-shopping-cart cart"></i></a>
+        </div>
+      </div>
+    </section>
+    <section id="review" class="section-m1">
+      <div class="jumbotron jumbotron-fluid info-section">
+        <div class="container">
+          <h2>Reviews</h2>
+          <p>
+            <i>
+              "Terrific! An absolutely great Indian who can convince with great
+              food! Both the ambience and the staff round off the visit
+              perfectly!”
+            </i>
+            – (Poulami, TripAdvisor)
+          </p>
+          <p>
+            <i>
+              "First-class food at reasonable prices in a pleasant ambience with
+              an absolutely service-oriented staff. It makes sense to book a
+              table as the restaurant is very busy. Absolutely to suggest. " </i
+            >- (Krittika, Google)
+          </p>
+          <p>
+            <i>
+              “Very pleasant atmosphere. Great, rich food. Well prepared and
+              very tasty. Very nice service. Clean and very attentive. Highly
+              recommended.” – (Atreyee, Google)
+            </i>
+          </p>
+          <p>
+            <i
+              >“The best Indian restaurant in Kolkata. I keep coming back here
+              not only for good authentic Indian food but also for relaxation
+              and recreation. Service is fast, super nice and professional. ”
+            </i>
+            – (Gregory, Zomato)
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="booktable" class="section-m1">
+      <h2>Book your table now to reduce waiting time</h2>
+      <button class="normal">Reserve Your Seat</button>
+    </section>
+    <section id="premise" class="section-m1">
+      <h4>~ GENERAL ~</h4>
+      <h2>Our premises are always well air-conditioned.</h2>
+      <h2>We have our own parking space.</h2>
+    </section>
+    <section id="catering">
+      <div class="jumbotron jumbotron-fluid info-section">
+        <div class="container">
+          <h2>Outdoor Catering</h2>
+          <p class="lead">
+            Indian cuisine has built up an enviable list of individual,
+            corporate, celebrity and social clientele over a period of time.
+            Each assignment is customized to suit the requirements of the host
+            and the invitees.
+          </p>
+          <p class="lead">
+            We do our best to create the right ambience, keeping in mind the
+            needs of the host and his invitee list to present a happy culinary
+            experience, rather than just serving out food. In addition to
+            Bengali, we also serve a range of other cuisines at our caterings
+            viz, Indian, Tandoor as well as a wide array of popular street food.
+            The Kolkata street food section is always an added attraction.
+          </p>
+          <p class="lead">
+            We welcome you to address your requirements for well planned menus
+            and customized price offer to make your event a success. We would be
+            happy to receive your enquiries. Our mail & contact information are:
+            'indiancuisine@gmail.com' or contact us at +91 123456789.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest menu and
+          <span>special offers</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1" id="contactus">
+      <div class="col">
+        <img class="logo" src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/325/original/logo.png?1681198654" alt="" />
+        <h4>Contact</h4>
+        <p>
+          <strong>Address: </strong> 70 Pandit Purushottom Roy Street, Kolkata
+        </p>
+        <p><strong>Phone: </strong> +91 123456789</p>
+        <p><strong>Hours: </strong> 11:00 - 23:00, Mon - Sun</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-pinterest"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track my Order</a>
+        <a href="#">Help</a>
+      </div>
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App store or Google Play</p>
+        <div class="row">
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/318/original/app.jpg?1681198590" alt="" />
+          <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/332/original/play.jpg?1681198716" alt="" />
+        </div>
+        <p>Secure payment gateway</p>
+        <img src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/076/331/original/pay.png?1681198708" alt="" />
+      </div>
+      <div class="copyright">
+        <p>@ 2023, Copyright</p>
+      </div>
+    </footer>
+    <script>
+      const bar = document.getElementById("bar");
+      const nav = document.getElementById("navbar");
+      const close = document.getElementById("close");
+      if (bar) {
+        bar.addEventListener("click", () => {
+          nav.classList.add("active");
+        });
+      }
+      if (close) {
+        close.addEventListener("click", () => {
+          nav.classList.remove("active");
+        });
+      }
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      0
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $(".items").slick({
+          infinite: true,
+          slidesToShow: window.screen.width >= 1024 ? 3 : 1,
+          slidesToScroll: window.screen.width >= 1024 ? 3 : 1,
+        });
+      });
+    </script>
+  </body>
+</html>
